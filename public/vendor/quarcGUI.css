@@ -1,0 +1,12 @@
+/*
+Styling for the QuARC GUI. Retained button subset from
+D:/lab-workspace/Workplace. The original file credits Simon for the
+start/stop design. The original Workplace files remain unchanged.
+Unused selectors and declarations overridden by styles.css have been removed.
+*/
+
+.daq-button {
+  color: white;
+  border: none;
+  cursor: pointer;
+}

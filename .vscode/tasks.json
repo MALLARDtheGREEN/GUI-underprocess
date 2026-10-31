@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "DetectorGUI: Start Linux PHP",
+      "type": "shell",
+      "command": "bash",
+      "args": ["${workspaceFolder}/scripts/start-linux.sh"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": [],
+      "presentation": {"reveal": "always", "panel": "dedicated"},
+      "runOptions": {"instanceLimit": 1}
+    },
+    {
+      "label": "DetectorGUI: Check Linux sudo",
+      "type": "process",
+      "command": "/usr/bin/sudo",
+      "args": ["-n", "--", "/usr/bin/id", "-u"],
+      "problemMatcher": []
+    }
+  ]
+}

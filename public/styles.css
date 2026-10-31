@@ -1,0 +1,53 @@
+/* The vendor CSS retains the used declarations from the Workplace GUI.
+   These rules implement the approved detector form and docked terminal. */
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { width: 100%; }
+.detector-app { height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
+.workspace { flex: 1; min-height: 0; }
+.control-pane { flex: 1; min-width: 0; padding: 18px 30px 20px; overflow-y: auto; }
+h1 { font-size: 26px; line-height: 1.3; margin: 0 0 18px; }
+.parameter-row { display: grid; grid-template-columns: 175px 170px minmax(0, 1fr); align-items: center; gap: 14px; min-height: 52px; }
+.parameter-row label { font-size: 17px; font-weight: 600; }
+.field-control { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.parameter-row input, .parameter-row select { width: 100%; min-width: 0; height: 32px; padding: 3px 10px; font: inherit; color: black; background: white; border: 1px solid #999; border-radius: 0; }
+.parameter-row select { padding: 2px 6px; }
+.parameter-row input::placeholder { color: black; opacity: 1; }
+.parameter-row input[aria-invalid="true"], .parameter-row select[aria-invalid="true"] { border: 1px solid #c00; background: #fff5f5; }
+.parameter-row input:focus-visible, .parameter-row select:focus-visible, button:focus-visible { outline: 2px solid cornflowerblue; outline-offset: 2px; }
+.field-message { color: slategray; line-height: 1.4; font-size: 16px; overflow-wrap: anywhere; }
+.field-message.error, #form-status.error { color: #c00; }
+.file-row { grid-template-columns: 175px minmax(170px, 370px) minmax(0, 1fr); }
+.browse { font: inherit; white-space: nowrap; height: 32px; padding: 1px 12px; border: 1px solid #999; border-radius: 2px; cursor: pointer; color: black; background: #eee; }
+.actions { display: flex; gap: 16px; margin-top: 20px; }
+.actions .daq-button { width: 228px; max-width: 45%; border-radius: 3px; font-size: 23px; font-weight: 400; padding: 8px 16px; }
+.setup-button { background: cornflowerblue; }
+.setup-button:disabled { opacity: 1; }
+.acquire-button { background: grey; }
+.acquire-button.ready { background: #008000; }
+.acquire-button[aria-disabled="true"] { cursor: not-allowed; }
+#filename-field { margin-top: 12px; }
+#filename-field .field-control, #filename-field .field-message { grid-column: 2 / 4; }
+#filename-field .field-message:empty { display: none; }
+button:disabled { opacity: .6; cursor: wait; }
+#form-status { margin: 8px 0 0; min-height: 22px; color: #333; font-size: 14px; }
+.service-panel { flex-shrink: 0; border-top: 1px solid silver; }
+.terminal-bar { min-height: 34px; display: flex; align-items: center; background: gainsboro; }
+#terminal-toggle { display: flex; align-items: center; gap: 8px; padding: 4px 18px; font: inherit; color: black; border: 0; background: transparent; cursor: pointer; min-height: 34px; }
+#error-indicator { font-size: 23px; color: #c00; font-weight: bold; line-height: 1; }
+#sudo-check { margin-left: auto; margin-right: 12px; font: inherit; font-size: 13px; border: 1px solid #999; border-radius: 0; background: #eee; color: black; cursor: pointer; }
+#terminal-body { background: #1e1e1e; height: 150px; max-height: 32vh; overflow: auto; }
+#terminal-output { font: 14px/1.5 Consolas, 'Courier New', monospace; color: #ddd; padding: 8px 24px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.log-error { color: #ff5555; }
+#monitor-page { text-align: center; padding-top: 15vh; }
+#monitor-page h1 { text-align: center; }
+.waiting-indicator { width: 44px; height: 44px; border: 4px solid gainsboro; border-top-color: cornflowerblue; border-radius: 50%; margin: 26px auto; animation: spin 1s linear infinite; }
+#elapsed-time { font-family: Consolas, monospace; }
+#stop-acquisition { font: inherit; padding: 6px 18px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .waiting-indicator { animation: none; } }
+@media (min-width: 1450px) { .parameter-row { min-height: 62px; grid-template-columns: 230px 220px minmax(0, 1fr); } .file-row { grid-template-columns: 230px minmax(220px, 480px) minmax(0, 1fr); } .control-pane { padding: 20px 38px; } .actions .daq-button { width: 298px; } }
+@media (max-height: 800px) and (min-width: 701px) { .terminal-open .parameter-row { min-height: 40px; } .terminal-open h1 { margin-bottom: 8px; } .terminal-open .actions { margin-top: 10px; } }
+@media (max-width: 1050px) { .control-pane { padding: 18px 20px; } .parameter-row { grid-template-columns: 155px 165px minmax(0, 1fr); gap: 10px; } .file-row { grid-template-columns: 155px minmax(165px, 1fr); } .file-row .field-message { grid-column: 2; } .file-row .field-message:empty { display: none; } .parameter-row label { font-size: 15px; } .field-message { font-size: 14px; } }
+@media (max-width: 700px) { .control-pane { padding: 18px 16px; } .parameter-row { grid-template-columns: 145px minmax(0, 1fr); padding: 6px 0; } .field-message { grid-column: 2; } .field-message:empty { display: none; } .file-row { grid-template-columns: 145px minmax(0, 1fr); } .file-row .field-control { flex-wrap: wrap; } .file-row input { flex: 1 1 130px; } .actions .daq-button { max-width: none; flex: 1; width: auto; font-size: 20px; } h1 { font-size: 24px; } }
+@media (max-width: 430px) { .parameter-row { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 7px 0; } .field-control { width: 100%; } }

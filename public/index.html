@@ -1,0 +1,59 @@
+<!doctype html>
+<!--
+@Author: Yidian Zhong
+@Contact: email: zcaphox@ucl.ac.uk
+          github: https://github.com/MALLARDtheGREEN/GUI-underprocess.git
+@reference: This is a text GUI for the detectors, it can set up configuration of
+detector parameters, acquire data and then visualize the data.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detector Setup</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/vendor/quarcBaseLayout.css">
+  <link rel="stylesheet" href="/vendor/quarcGUI.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="detector-app">
+    <main class="container workspace">
+      <section class="plotBox control-pane" aria-label="Detector workspace">
+        <section id="control-page">
+          <h1>Detector control</h1>
+          <form id="parameter-form" novalidate>
+            <div id="parameter-fields"></div>
+            <div class="actions">
+              <button class="daq-button setup-button" type="submit" value="setup" disabled>Setup</button>
+              <button class="daq-button acquire-button" type="submit" value="acquire" aria-disabled="true">Acquire</button>
+            </div>
+            <div id="filename-field"></div>
+            <p id="form-status" role="status" aria-live="polite">Loading parameters…</p>
+          </form>
+        </section>
+        <section id="monitor-page" hidden aria-labelledby="monitor-title">
+          <h1 id="monitor-title">Waiting for detector data</h1>
+          <div class="waiting-indicator" aria-hidden="true"></div>
+          <p id="monitor-detail">Acquisition started. Waiting for detector output.</p>
+          <p>Acquisition time: <output id="elapsed-time">00:00:00</output></p>
+          <button id="stop-acquisition" type="button">Stop acquisition</button>
+        </section>
+      </section>
+    </main>
+    <section id="service-panel" class="service-panel" aria-label="Service terminal">
+      <div class="terminal-bar">
+        <button id="terminal-toggle" type="button" aria-expanded="false" aria-controls="terminal-body">
+          <span id="terminal-arrow" aria-hidden="true">▸</span> Python service
+          <span id="error-indicator" hidden aria-label="Service error">!</span>
+        </button>
+        <button id="sudo-check" type="button" hidden>Check sudo</button>
+      </div>
+      <div id="terminal-body" hidden>
+        <div id="terminal-output" role="log" aria-live="polite" aria-label="Service output"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

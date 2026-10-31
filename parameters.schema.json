@@ -1,0 +1,11 @@
+{
+  "vbus": {"label": "Vbus", "kind": "enum", "values": [0, 1], "default": "", "hint": ""},
+  "enable": {"label": "Enable", "kind": "enum", "values": [0, 1], "default": "", "hint": ""},
+  "nboards": {"label": "nboards", "kind": "integer", "min": 1, "max": 4, "default": "", "hint": "Integer: 1–4"},
+  "integration_time": {"label": "Integration time", "kind": "integer", "min": 200, "max": 1000, "default": "", "hint": "Integer: 200–1000"},
+  "number_of_modules": {"label": "Number of module", "kind": "integer", "min": 1, "max": 5, "default": "", "hint": "Integer: 1–5"},
+  "calibration_file": {"label": "Calibration file", "kind": "json_file", "default": "", "placeholder": ".json file", "hint": ""},
+  "background_file": {"label": "Background file", "kind": "json_file", "default": "", "placeholder": ".json file", "hint": ""},
+  "full_scale_range": {"label": "Full scale range", "kind": "enum", "values": [12.5, 50, 100, 150, 200, 250, 300, 350], "default": "", "hint": ""},
+  "filename": {"label": "Filename", "kind": "string", "default": "", "hint": ""}
+}

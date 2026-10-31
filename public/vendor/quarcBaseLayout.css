@@ -1,0 +1,43 @@
+/*
+Styling for the QuARC GUI. Basic page layout.
+Retained subset from D:/lab-workspace/Workplace.
+Unused selectors and declarations overridden by styles.css have been removed.
+The original Workplace files remain unchanged.
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  color: black;
+  margin: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', "Bitstream Vera Sans", sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-weight: bolder;
+  text-align: left;
+}
+
+p {
+  margin: 0 0 1.12em 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background-color: inherit;
+}
+
+.plotBox {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+}
